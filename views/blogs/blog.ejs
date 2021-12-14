@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <%-include('../partials/header.ejs') %>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %> 
+
+    <div class="blogreview">
+        <h1 class=> <%= blog.title  %>  </h1>
+        <hr>
+        <p> <%= blog.body %> </p>
+        
+        <form  class="d-inline" action="/blogs/<%= blog._id %>?_method=DELETE"  method="POST">
+            <button class="btn btn-danger mt-1" type="submit"> Delete </button>
+         </form>
+
+         <form  class="d-inline" action="/blogs/edit/<%= blog._id %>"  method="GET">
+            <button class="btn btn-secondary mt-1" type="submit"> Edit </button>
+        </form>
+        <a class="btn btn-info mt-1" href="/">Cancel</a>
+    </div>
+    
+
+
+    <%- include('../partials/footer.ejs') %> 
+
+   
+</body>
+</html>

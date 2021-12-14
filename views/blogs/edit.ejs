@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%-include('../partials/header.ejs') %>
+</head>
+<body>
+    <%- include('../partials/nav.ejs') %> 
+
+
+    <form class="align-items-center mx-5" action="/blogs/edit/<%= blogs._id%>?_method=PUT" method="POST">
+
+        <label class="m-2" for="title">Blog title</label>
+        <div class="form-group form-group-lg mb-2">
+        <input class="form-control input-lg" type="text" id="title" name="title" required value="<%= blogs.title  %>">
+        </div>
+        <label for="snippet">Blog snippet</label>
+        <div class="form-group mb-2">
+          <input class="form-control col-lg" type="text" id="snippet" name="snippet" required value="<%= blogs.snippet  %>" >
+        </div>
+
+        <input type="hidden" value="<%= blogs._id  %>">
+        
+        <label for="body">Blog body</label>
+        <div class="form-group">
+          <textarea class="form-control input-lg" id="body" name="body" required > <%= blogs.body %> </textarea>
+        </div>
+        
+        <div class="btn-group btn-group-lg p-2 mr-2">
+
+          <button class="btn btn-success mr-3" type="submit">Save</button>
+          <a class="btn btn-secondary mx-2" href="/">Cancel</a>
+                
+                
+            </div>
+       </form>
+           
+
+       
+       
+      
+      
+
+      <%- include('../partials/footer.ejs') %> 
+</body>
+</html>
